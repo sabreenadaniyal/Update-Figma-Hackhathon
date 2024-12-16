@@ -4,8 +4,6 @@ import { FaAngleDown } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
-import MobileHeader from "./MobileHeader";
-import { NavigationMenuDemo } from "./NavigationDemo";
 
 
 const Header = () => {
@@ -16,13 +14,13 @@ const Header = () => {
 
         {/* Logo */}
         <div className="lg:hidden block">
-          <MobileHeader /></div>
+          </div>
         <Link href="/" className="text-gray-900 text-2xl font-extrabold hover:opacity-5 cursor-pointer">SHOP.CO </Link>
 
         {/* Navigation Menu */}
         <nav className="hidden lg:flex items-center space-x-8">
           <Link href="/shop" className="hover:text-gray-900 flex items-center bg-white hover:bg-gray-300">
-          <NavigationMenuDemo />
+          Shop <FaAngleDown />
            </Link>
           <Link href="/TopSelling" className="hover:text-gray-900 hover:bg-gray-300">
             On Sale
