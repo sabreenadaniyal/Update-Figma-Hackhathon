@@ -4,7 +4,7 @@ import Image from 'next/image'
 const TopSelling = () => {
     const items = [
         {
-            image: "/hero section/tShirt.jpg",
+            image: "/hero section/tshirt.jpg",
             title: "VERTICAL STRIPED SHIRT",
             stars: "★★★★★", // Rendered star
             rating: "5.0/5",
