@@ -4,7 +4,7 @@ import Image from 'next/image'
 const NewArrivals = () => {
     const items = [
         {
-            image: "/hero section/tshirt.jpg",
+            image: "/hero section/shirt.jpg",
             title: "T-SHIRT WITH TAPE DETAILS",
             stars: "★★★★★", // Rendered star
             rating: "4.5/5",
