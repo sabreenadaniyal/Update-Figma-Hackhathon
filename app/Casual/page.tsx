@@ -11,21 +11,21 @@ import { ArrowRight } from 'lucide-react';
 const Casual = () => {
     const items = [
         {
-            image: "/product Details/screen print.png",
+            image: "/product details/screen print.png",
             title: "Gradient Graphic T-shirt.",
             stars: "★★★★", // Rendered star
             rating: "3.5/5",
             SalePrice: "$145",
         },
         {
-            image: "/product Details/pink shirt.png",
+            image: "/product details/pink shirt.png",
             title: "Polo with Tipping Details",
             stars: "★★★★★", // Rendered star
             rating: "4.5/5",
             SalePrice: "$180",
         },
         {
-            image: "/product Details/black stripe shirt.png",
+            image: "/product details/black stripe shirt.png",
             title: "Black Striped T-shirt",
             stars: "★★★★★", // Rendered star
             rating: "5.0/5",
@@ -59,7 +59,7 @@ const Casual = () => {
             button: "-30%",
         },
         {
-            image: "/hero section/tShirt.jpg",
+            image: "/hero section/tshirt.jpg",
             title: "VERTICAL STRIPED SHIRT",
             stars: "★★★★★", // Rendered star
             rating: "5.0/5",
