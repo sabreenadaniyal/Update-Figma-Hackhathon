@@ -62,7 +62,7 @@ const TShirt = () => {
   ]
   const items = [
     {
-      image: "/product Details/blue shirt.png",
+      image: "/product details/blue shirt.png",
       title: "Polo with Contrast Trims",
       stars: "★★★★", // Rendered star
       rating: "4.0/5",
@@ -71,21 +71,21 @@ const TShirt = () => {
       button: "-20%",
     },
     {
-      image: "/product Details/screen print.png",
+      image: "/product details/screen print.png",
       title: "Gradient Graphic T-shirt.",
       stars: "★★★★", // Rendered star
       rating: "3.5/5",
       SalePrice: "$145",
     },
     {
-      image: "/product Details/pink shirt.png",
+      image: "/product details/pink shirt.png",
       title: "Polo with Tipping Details",
       stars: "★★★★★", // Rendered star
       rating: "4.5/5",
       SalePrice: "$180",
     },
     {
-      image: "/product Details/black stripe shirt.png",
+      image: "/product details/black stripe shirt.png",
       title: "Black Striped T-shirt",
       stars: "★★★★★", // Rendered star
       rating: "5.0/5",
@@ -303,7 +303,7 @@ const TShirt = () => {
         {/* You might Header */}
         <div className="mb-6 items-center flex justify-center w-full h-[58px]  ">
           <Image
-            src="/product Details/You might also like.png"
+            src="/product details/You might also like.png"
             alt="Also Like"
             width={579}
             height={58}
