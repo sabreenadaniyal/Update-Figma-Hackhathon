@@ -306,7 +306,7 @@ const TShirt = () => {
         {/* You might Header */}
         <div className="mb-6 items-center flex justify-center w-full h-[58px]">
           <Image
-            src="/product Details/You might also like.png"
+            src="/product details/You might also like.png"
             alt="Also Like"
             width={579}
             height={58}
