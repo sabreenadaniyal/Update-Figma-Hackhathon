@@ -83,7 +83,7 @@ const Casual = () => {
         },
     ]
     return (
-        <div>
+        <div className='md:mb-[130px] mb-[100px] lg:mb-[210px]'>
             <div className="wrapper mt-5">
                 <div className="border-2 wrapper"></div>
                 <ul className="flex text-sm sm:text-base items-center text-gray-500 mt-2">
@@ -130,7 +130,7 @@ const Casual = () => {
                     </div>
                     <div className="flex justify-between mt-3 text-sm">
                         <p>$500</p>
-                        <p className='mr-24'>$200</p>
+                        <p className='mr-24 md:mr-[520px] lg:ml-24'>$200</p>
                     </div>
                     <hr className="bg-gray-300 mt-5" />
 

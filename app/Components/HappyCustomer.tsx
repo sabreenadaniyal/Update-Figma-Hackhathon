@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const HappyCustomer = () => {
     return (
-        <div className="wrapper flex flex-col px-4 py-10 mt-5">
+        <div className="wrapper flex flex-col px-4 py-10 mt-8">
             {/* Header */}
             <div className="md:flex md:justify-between md:items-center flex flex-wrap md:gap-4 md:ml-12">
                 <Image

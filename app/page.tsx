@@ -7,7 +7,7 @@ import HappyCustomer from "./Components/HappyCustomer";
 
 export default function Home() {
   return (
-    <div>
+    <div className="mb-[100px]">
 
       <Hero />
       <NewArrivals /> 

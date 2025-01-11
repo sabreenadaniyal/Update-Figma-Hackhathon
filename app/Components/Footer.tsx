@@ -7,7 +7,7 @@ import TopFooter from './TopFooter';
 
 const Footer = () => {
   return (
-    <main className="bg-[#F0F0F0] w-full h-full md:h-[450px] relative mt-32 max-w-screen-2xl mx-auto">
+    <main className="bg-[#F0F0F0] w-full h-full md:h-[450px] lg:w-[1250px] xl:w-[1500px] relative max-w-screen-2xl mx-auto">
     {/* Render */}
     <span className="absolute top-[-80px]">
     <TopFooter/>

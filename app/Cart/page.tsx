@@ -31,7 +31,7 @@ const Cart = () => {
   ];
 
   return (
-    <div className="wrapper lg:p-10">
+    <div className="wrapper lg:p-10 mb-[100px]">
       {/* Breadcrumb */}
       <div className="mb-4">
         <ul className="flex text-sm sm:text-base items-center text-gray-500">

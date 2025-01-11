@@ -96,7 +96,7 @@ const TShirt = () => {
   ]
 
   return (
-    <div>
+    <div className="md:mb-[520px] mb-[1770px]">
       {/* Breadcrumbs */}
       <div className="wrapper border-gray-400 border-t mt-[20px]">
         <ul className="flex text-[14px] font-normal text-[#00000099] pt-[24px]">
@@ -114,7 +114,6 @@ const TShirt = () => {
 
             <div className='w-[350px] md:w-[444px] md:h-[530px] grid md:row-span-3 col-span-1'>
               <Image
-                className=""
                 src="/product details/green shirt.png"
                 alt="img"
                 width={444}
@@ -153,9 +152,12 @@ const TShirt = () => {
 
         <div className='lg:w-[400px] xl:mr-52 lg:ml-2 lg:mt-5 xl:ml-7 xl:mt-5'>
 
-          <Image src="/product details/graphic shirt.png" alt="title"
-            width={600}
-            height={48} />
+          <Image 
+          src="/product details/graphic shirt.png" 
+          alt="title"
+          width={600}
+          height={48} 
+          />
 
           <div className='flex items-center space-x-2'>
             <p className='text-[#FFC633;] text-[30px] '>★★★★★</p>
@@ -304,16 +306,17 @@ const TShirt = () => {
       <div className="wrapper max-w-[1440px] mx-auto py-12 mt-8">
 
         {/* You might Header */}
-        <div className="mb-6 items-center flex justify-center w-full h-[58px]">
+        <div className="w-full h-[58px]">
           <Image
-            src="/product Details/You might also like.png"
+            src="/product details/You might also like.png"
             alt="Also Like"
             width={579}
             height={58}
+            className="lg:ml-80 md:ml-16"
           />
 
           {/* You Might Also Like Products */}
-          <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
             {items.map((item, index) => (
               <div key={index}
                 className="rounded-lg shadow-sm hover:shadow-md">
@@ -324,7 +327,8 @@ const TShirt = () => {
                     alt={item.title}
                     width={295}
                     height={298}
-                    className="object-cover rounded-xl mb-4" />
+                    className="object-cover rounded-xl mb-4"
+                    />
                 </div>
 
                 <div>
