@@ -112,37 +112,36 @@ const TShirt = () => {
 
           <div className='wrapper flex flex-col md:flex-row-reverse md:gap-5'>
 
-            <div>
-              <div className='w-[350px] md:w-[444px] md:h-[530px] grid md:row-span-3 col-span-1'>
-                <Image 
-                className="" 
-                src="/product details/green shirt.png" 
+            <div className='w-[350px] md:w-[444px] md:h-[530px] grid md:row-span-3 col-span-1'>
+              <Image
+                className=""
+                src="/product details/green shirt.png"
                 alt="img"
-                  width={444}
-                  height={530} 
-                  />
-              </div>
+                width={444}
+                height={530}
+              />
             </div>
+
 
             <div className='flex md:flex-col mt-2 gap-2'>
               <div className='md:w-[152px] h-[167px]'>
-                <Image 
-                src="/product details/green shirt1.png" 
-                alt="img"
-                  width={152} 
-                  height={167} />
-              </div>
-              <div className='md:w-[152px] h-[167px]'>
-                <Image 
-                src="/product details/green shirt2.png" 
-                alt="img"
+                <Image
+                  src="/product details/green shirt1.png"
+                  alt="img"
                   width={152}
                   height={167} />
               </div>
               <div className='md:w-[152px] h-[167px]'>
-                <Image 
-                src="/product details/green shirt3.png" 
-                alt="img"
+                <Image
+                  src="/product details/green shirt2.png"
+                  alt="img"
+                  width={152}
+                  height={167} />
+              </div>
+              <div className='md:w-[152px] h-[167px]'>
+                <Image
+                  src="/product details/green shirt3.png"
+                  alt="img"
                   width={152}
                   height={167} />
               </div>
@@ -305,73 +304,63 @@ const TShirt = () => {
       <div className="wrapper max-w-[1440px] mx-auto py-12 mt-8">
 
         {/* You might Header */}
-<<<<<<< HEAD
         <div className="mb-6 items-center flex justify-center w-full h-[58px]">
-          <Image 
-          src="/product Details/You might also like.png" 
-          alt="Also Like"
-=======
-        <div className="mb-6 items-center flex justify-center w-full h-[58px]  ">
           <Image
-            src="/product details/You might also like.png"
+            src="/product Details/You might also like.png"
             alt="Also Like"
->>>>>>> 8cefa692ac1e748552e82e09730b80586f9f18a8
             width={579}
-            height={58} 
-            />
+            height={58}
+          />
+
+          {/* You Might Also Like Products */}
+          <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {items.map((item, index) => (
+              <div key={index}
+                className="rounded-lg shadow-sm hover:shadow-md">
+
+                <div className='w-[295px] h-[298px] gap-8'>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={295}
+                    height={298}
+                    className="object-cover rounded-xl mb-4" />
+                </div>
+
+                <div>
+                  <h3 className="text-[20px] font-bold mb-2">{item.title}</h3>
+                  <div className="flex items-center mb-2">
+                    <span className="text-yellow-500 text-2xl">{item.stars}</span>
+                    <span className="text-gray-400 ml-2">{item.rating}</span>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    {item.SalePrice && (
+                      <span className="text-2xl font-bold text-black">{item.SalePrice}</span>
+                    )}
+                    {item.OriginalPrice && (
+                      <span className="text-xl font-bold text-gray-400 line-through mr-[100px]">{item.OriginalPrice}</span>
+                    )}
+                    {item.button && (
+                      <span className="w-[58px] h-[28px] text-sm font-bold mr-[10px] text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.button}</span>
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            ))
+            }
+          </div>
+
         </div>
 
 
-        {/* You Might Also Like Products */}
-        <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {items.map((item, index) => (
-            <div key={index} 
-            className="rounded-lg shadow-sm hover:shadow-md">
 
-              <div className='w-[295px] h-[298px] gap-8'>
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={295}
-                  height={298}
-                  className="object-cover rounded-xl mb-4" />
-              </div>
 
-              <div>
-                <h3 className="text-[20px] font-bold mb-2">{item.title}</h3>
-                <div className="flex items-center mb-2">
-                  <span className="text-yellow-500 text-2xl">{item.stars}</span>
-                  <span className="text-gray-400 ml-2">{item.rating}</span>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  {item.SalePrice && (
-                    <span className="text-2xl font-bold text-black">{item.SalePrice}</span>
-                  )}
-                  {item.OriginalPrice && (
-                    <span className="text-xl font-bold text-gray-400 line-through mr-[100px]">{item.OriginalPrice}</span>
-                  )}
-                  {item.button && (
-                    <span className="w-[58px] h-[28px] text-sm font-bold mr-[10px] text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.button}</span>
-                  )}
-                </div>
-
-              </div>
-            </div>
-          ))
-          }
-        </div>
 
       </div>
-
-
-
-
-
     </div>
   )
 }
 
 export default TShirt
-
-
