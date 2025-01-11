@@ -1,16 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Offers from './TopFooter';
 import { CiInstagram } from "react-icons/ci";
 import { FaTwitter, FaFacebook, FaGithub } from "react-icons/fa";
+import TopFooter from './TopFooter';
 
 const Footer = () => {
   return (
     <main className="bg-[#F0F0F0] w-full h-full md:h-[450px] relative mt-32 max-w-screen-2xl mx-auto">
     {/* Render */}
     <span className="absolute top-[-80px]">
-    <Offers/>
+    <TopFooter/>
     </span>
   {/* container */}
   <div  className="flex h-full md:h-[400px] flex-col md:flex-row justify-around items-start p-5 pt-[160px] sm:pt-32 border-b">
