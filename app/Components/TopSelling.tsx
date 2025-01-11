@@ -4,7 +4,7 @@ import Image from 'next/image'
 const TopSelling = () => {
     const items = [
         {
-            image: "/hero section/tShirt.jpg",
+            image: "/hero section/tshirt.jpg",
             title: "VERTICAL STRIPED SHIRT",
             stars: "★★★★★", // Rendered star
             rating: "5.0/5",
@@ -36,7 +36,7 @@ const TopSelling = () => {
     ]
 
     return (
-        <div className="wrapper max-w-[1440px] mx-auto py-3">
+        <div className="wrapper py-3">
             {/* Top selling Header */}
             <div className="mb-6 items-center flex justify-center w-full h-[58px]">
                 <Image
@@ -48,21 +48,21 @@ const TopSelling = () => {
             </div>
 
             {/* Top Selling Products */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {items.map((item, index) => (
                     <div key={index} className="rounded-lg shadow-sm hover:shadow-md ">
 
-                        <div className='w-[295px] h-[298px]'>
+                        <div className='w-full relative'>
                             <Image
                                 src={item.image}
                                 alt={item.title}
                                 width={295}
                                 height={298}
-                                className="object-cover rounded-xl mb-4"
+                                className="object-fill rounded-xl mb-4"
                             />
                         </div>
                         <div>
-                            <h3 className="text-[20px] font-bold mb-2">{item.title}</h3>
+                            <h3 className="md:w-[225px] font-bold mb-2">{item.title}</h3>
                             <div className="flex items-center mb-2">
                                 <span className="text-yellow-500 text-2xl">{item.stars}</span>
                                 <span className="text-gray-400 ml-2">{item.rating}</span>
@@ -82,8 +82,8 @@ const TopSelling = () => {
                     </div>
                 ))}
             </div>
-            <div className='w-[218px] h-[58px] border-2 rounded-full mt-12 wrapper'>
-                <button className='px-20 py-4 text-base'>View All</button>
+            <div className='md:w-[358px] md:h-[46px] lg:w-[218px] lg:h-[52px] md:ml-40 lg:ml-[410px] xl:ml-[510px] border-2  rounded-full mt-9 wrapper hover:bg-black hover:text-white'>
+                <button className='px-24 py-3 md:px-40 md:py-3 lg:px-20 text-base'>View All</button>
             </div>
 
         </div>

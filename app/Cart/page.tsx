@@ -58,16 +58,16 @@ const Cart = () => {
                 height={124}
                 className="rounded-lg"
               />
-              <div className="flex justify-between w-full">
+              <div className="flex justify-between w-full flex-row">
                 <div>
                   <h2 className="text-lg font-bold">{item.name}</h2>
                   <p className="text-sm text-gray-500">Size: {item.size}</p>
                   <p className="text-sm text-gray-500">Color: {item.color}</p>
                   <p className="mt-2 font-bold text-lg">${item.price}</p>
                 </div>
-                <div className="flex flex-col items-end ">
-                  <Trash2 className="text-red-600 w-5 h-5 mb-4 cursor-pointer" />
-                  <div className="flex items-center bg-gray-200 rounded-full px-4 py-2 gap-2 ">
+                <div className="flex flex-col items-end">
+                  <Trash2 className="text-red-600 w-5 h-5 mb-4 cursor-pointer mt-5" />
+                  <div className="flex items-center bg-gray-200 rounded-full md:px-4 md:py-2 gap-2 mt-14">
                     <button className="text-lg font-bold">-</button>
                     <p>1</p>
                     <button className="text-lg font-bold">+</button>
@@ -79,7 +79,7 @@ const Cart = () => {
         </div>
 
         {/* Right Section: Order Summary */}
-        <div className="w-full lg:w-[400px] border rounded-lg p-4">
+        <div className="w-full lg:w-[400px] lg:h-[458px] border rounded-lg p-4">
           <h2 className="text-xl font-bold mb-4">Order Summary</h2>
           <div className="space-y-4">
             <div className="flex justify-between">
@@ -117,7 +117,7 @@ const Cart = () => {
           </div>
 
           {/* Checkout Button */}
-          <button className="w-full bg-black text-white mt-6 py-3 rounded-lg flex items-center justify-center gap-2">
+          <button className="w-full bg-black text-white mt-6 py-3 rounded-full flex items-center justify-center gap-2">
             Go To Checkout <ArrowRight />
           </button>
         </div>

@@ -4,17 +4,17 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const HappyCustomer = () => {
     return (
-        <div className="w-full wrapper flex flex-col px-4 py-10 mt-5">
+        <div className="wrapper flex flex-col px-4 py-10 mt-5">
             {/* Header */}
-            <div className="md:flex md:justify-between md:items-center flex flex-wrap md:gap-4 md:ml-12 ">
+            <div className="md:flex md:justify-between md:items-center flex flex-wrap md:gap-4 md:ml-12">
                 <Image
                     src="/hero section/happycustomer.png"
                     alt="Happy Customers"
                     width={654}
                     height={58}
-                    className='sm:w-[350px]'
+                    className='w-[250px] lg:w-[654px]'
                 />
-                <div className="flex md:gap-3 md:mr-12">
+                <div className="md:gap-3 md:mr-12 hidden md:hidden lg:inline-flex">
                     <ArrowLeft
                         className="cursor-pointer hover:bg-gray-300 rounded-full w-[24px] h-[24px] "
                         aria-label="Previous testimonials"
@@ -27,7 +27,8 @@ const HappyCustomer = () => {
             </div>
 
             {/* Customer Testimonials */}
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
+            <div className="flex flex-wrap justify-center items-center gap-6 mt-10 w-full">
+
                 {/* Testimonial Card */}
                 {[
                     {
@@ -48,8 +49,7 @@ const HappyCustomer = () => {
                 ].map((testimonial, index) => (
                     <div
                         key={index}
-                        className="w-full max-w-sm p-6 border-2 border-gray-200 rounded-2xl bg-white shadow-sm"
-                    >
+                        className="w-full max-w-sm p-6 border-2 border-gray-200 rounded-2xl bg-white shadow-sm">
                         <span className="text-[#FFC633] text-3xl mb-4 block">
                             &#9733;&#9733;&#9733;&#9733;&#9733;
                         </span>

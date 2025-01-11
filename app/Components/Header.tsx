@@ -4,13 +4,18 @@ import { FaAngleDown } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
+import MobileNavbar from "./MobileNavbar";
 
 
 const Header = () => {
   return (
     <header className="bg-white wrappper py-4">
       <div className="wrapper flex items-center justify-between px-4">
-
+      
+       {/* Menu */}
+       <div className="lg:hidden">
+          <MobileNavbar />
+        </div>
 
         {/* Logo */}
         <div className="lg:hidden block">
@@ -28,7 +33,7 @@ const Header = () => {
           <Link href="/NewArrivals" className="hover:text-gray-900 hover:bg-gray-300">
             New Arrivals
           </Link>
-          <Link href="/brands" className="hover:text-gray-900 ">
+          <Link href="/brands" className="hover:text-gray-900 hover:bg-gray-300">
             Brands
           </Link>
         </nav>

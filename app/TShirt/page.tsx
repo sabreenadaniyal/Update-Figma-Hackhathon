@@ -62,7 +62,7 @@ const TShirt = () => {
   ]
   const items = [
     {
-      image: "/product Details/blue shirt.png",
+      image: "/product details/blue shirt.png",
       title: "Polo with Contrast Trims",
       stars: "★★★★", // Rendered star
       rating: "4.0/5",
@@ -71,21 +71,21 @@ const TShirt = () => {
       button: "-20%",
     },
     {
-      image: "/product Details/screen print.png",
+      image: "/product details/screen print.png",
       title: "Gradient Graphic T-shirt.",
       stars: "★★★★", // Rendered star
       rating: "3.5/5",
       SalePrice: "$145",
     },
     {
-      image: "/product Details/pink shirt.png",
+      image: "/product details/pink shirt.png",
       title: "Polo with Tipping Details",
       stars: "★★★★★", // Rendered star
       rating: "4.5/5",
       SalePrice: "$180",
     },
     {
-      image: "/product Details/black stripe shirt.png",
+      image: "/product details/black stripe shirt.png",
       title: "Black Striped T-shirt",
       stars: "★★★★★", // Rendered star
       rating: "5.0/5",
@@ -96,240 +96,247 @@ const TShirt = () => {
   ]
 
   return (
-    <div className='wrapper w-[1440px] border-gray-400 mt-[25px] border-t mx-auto px-4 md:px-8'>
-
+    <div>
       {/* Breadcrumbs */}
-      <div className="w-[259px] h-[22px] flex mt-5 text-gray-500 gap-1">
-        <ul className="flex gap-1">
-          <li>Home <ChevronRight className="ml-11 mt-[-22px]" /></li>
-          <li>Shop <ChevronRight className="ml-9 mt-[-22px]" /></li>
-          <li>Men <ChevronRight className="ml-7 mt-[-22px]" /></li>
-          <li className="font-semibold">T-Shirt</li>
+      <div className="wrapper border-gray-400 border-t mt-[20px]">
+        <ul className="flex text-[14px] font-normal text-[#00000099] pt-[24px]">
+          <li className="flex">Home <ChevronRight className="w-4" /></li>
+          <li className="flex">Shop <ChevronRight className="w-4" /></li>
+          <li className="flex">Men <ChevronRight className="w-4" /></li>
+          <li className="flex font-bold">T-Shirt</li>
         </ul>
       </div>
 
-      {/* Main Content */}
-      <div className="flex-wrap md:flex-wrap mt-2 gap-6">
+      <div className='md:flex-col lg:flex lg:flex-row md:wrapper mt-2'>
+        <div className='grid md:grid-cols-1 grid-col-1 h-full'>
 
-        {/* Left Side:Images */}
-        <div className="flex-1 grid grid-cols-2 gap-4 w-[320px] h-[530px] mt-5">
-          <div className="w-[152px] h-[167px]">
-            <Image src="/product details/green shirt1.png" alt="shirt"
-              width={152}
-              height={167} />
-          </div>
-          <div className="row-span-3 w-[444px] h-[530px]">
-            <Image src="/product details/green shirt.png" alt="shirt"
-              width={444}
-              height={530} />
+          <div className='wrapper flex flex-col md:flex-row-reverse md:gap-5'>
 
+            <div>
+              <div className='w-[350px] md:w-[444px] md:h-[530px] grid md:row-span-3 col-span-1'>
+                <Image 
+                className="" 
+                src="/product details/green shirt.png" 
+                alt="img"
+                  width={444}
+                  height={530} 
+                  />
+              </div>
+            </div>
+
+            <div className='flex md:flex-col mt-2 gap-2'>
+              <div className='md:w-[152px] h-[167px]'>
+                <Image 
+                src="/product details/green shirt1.png" 
+                alt="img"
+                  width={152} 
+                  height={167} />
+              </div>
+              <div className='md:w-[152px] h-[167px]'>
+                <Image 
+                src="/product details/green shirt2.png" 
+                alt="img"
+                  width={152}
+                  height={167} />
+              </div>
+              <div className='md:w-[152px] h-[167px]'>
+                <Image 
+                src="/product details/green shirt3.png" 
+                alt="img"
+                  width={152}
+                  height={167} />
+              </div>
+
+            </div>
           </div>
-          <div className="w-[152px] h-[167px] ">
-            <Image src="/product details/green shirt2.png" alt="shirt"
-              width={152}
-              height={167} />
-          </div>
-          <div className="w-[152px] h-[167px]">
-            <Image src="/product details/green shirt3.png" alt="shirt"
-              width={152}
-              height={167} />
-          </div>
+
         </div>
-      </div>
 
-      {/* Right Side */}
-      <div className="w-[404px] h-[670] flex-col mx-auto ml-[590px] lg:w-1/2 flex lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <Image className='mt-[-535px] mb-1' src="/product details/graphic shirt.png" alt="shirt"
-          width={600}
-          height={48}
-        />
+        <div className='lg:w-[400px] xl:mr-52 lg:ml-2 lg:mt-5 xl:ml-7 xl:mt-5'>
 
-        <div className="flex flex-col mb-4 w-[193px] h-[24.71px]">
-          <span className="flex items-center text-yellow-400 text-2xl">
-            &#9733; &#9733; &#9733; &#9733; &#9733;
-            <span className="text-gray-600 ml-3 text-lg">4.5/5</span>
-          </span>
+          <Image src="/product details/graphic shirt.png" alt="title"
+            width={600}
+            height={48} />
 
-          <div className='mt-3 flex'>
-            <h3 className='w-[81px] h-[43px] text-bold text-3xl font-bold'>$260</h3>
-            <h4 className='line-through text-gray-500 text-2xl'>$300</h4>
-            <span className='bg-red-200 text-red-600 w-[72px] h-[34px] rounded-xl ml-3 px-3 py-1'>-40%</span>
+          <div className='flex items-center space-x-2'>
+            <p className='text-[#FFC633;] text-[30px] '>★★★★★</p>
+            <p className='text-[16px] font-normal text-[#000000]'>4.5/5</p>
+          </div>
+          <div className='flex items-center space-x-3'>
+            <h3 className='text-[32px] font-bold'>$260</h3>
+            <h3 className='line-through text-[#0000004D;] text-[32px]'>$300</h3>
+            <p className='bg-[#FF33331A] text-[#FF3333] w-[72px] h-[34px] py-[5px] px-[14px] rounded-[62px]'>-40%</p>
           </div>
 
-          <p className="w-[590px] h-[33px] text-gray-500 mt-2 text-[16px]">
-            This graphic t-shirt which is perfect for any occassion.Crafted from a soft
-            and breathable fabric.it offers superior comfort and style.
-          </p>
+          <p className='text-[16px] font-normal text-[#00000099] lg:w-[590px] h-[33px] mt-4'>
+            This graphic t-shirt which is perfect for any occasion. Crafted from a soft
+            and breathable fabric, it offers superior comfort and style.</p>
 
           {/* Horizontal Line*/}
-          <div className='w-[590px] text-gray-400 border-gray-300 border-b-2 mt-9'></div>
+          <hr className='mt-20 lg:mt-8 md:mt-8' />
 
-          {/* Color Swatch*/}
-          <div className="mt-5 items-center pb-5 border-b-2 border-gray-100 mb-5">
-            <span className="mr-3 w-[93px] h-[11px] text-gray-400 text-[16px]">Select Colours</span>
-            <div className="w-[143px] h-[37px] mt-3">
-              <button className="w-[37px] h-[37px] border-2 border-[#4F4631] bg-[#4F4631] hover:border-black rounded-full focus:outline-none">
-                <Check className="text-white ml-1 text-xs" />
-              </button>
-              <button className="w-[37px] h-[37px] border-2 border-[#314F4A] bg-[#314F4A] hover:border-black ml-2 rounded-full focus:outline-none"></button>
-              <button className="w-[37px] h-[37px] border-2 border-[#31344F] bg-[#31344F] hover:border-black  ml-2 rounded-full focus:outline-none"></button>
+          <p className='w-[93px] h-[11px] text-[#00000099] mt-2'>Select Colors</p>
+          <div className='flex space-x-2 mt-4'>
+            <div className='w-[37px] h-[37px] rounded-full bg-[#4F4631] border-2 hover:border-black ml-2 focus:outline-none'>
+              <Check className='text-white mx-[6px] my-[5px]' /></div>
+            <div className='w-[37px] h-[37px] rounded-full bg-[#314F4A] border-2 hover:border-black ml-2 focus:outline-none'></div>
+            <div className='w-[37px] h-[37px] rounded-full bg-[#31344F] border-2 hover:border-black ml-2 focus:outline-none'></div>
+          </div>
+
+          {/* Horizontal Line*/}
+          <hr className='mt-8' />
+
+          <p className='text-[#00000099] mt-2'>Choose Size</p>
+          <div className='flex space-x-5 mt-4'>
+            <button className='bg-[#F0F0F0] text-[#00000099] rounded-[62px] w-[86px] h-[46px] text-[14px] font-normal hover:bg-black hover:text-white'>Small</button>
+            <button className='bg-[#F0F0F0] text-[#00000099] rounded-[62px] w-[105px] h-[46px] text-[14px] font-normal hover:bg-black hover:text-white'>Medium</button>
+            <button className='bg-[#F0F0F0] text-[#00000099] rounded-[62px] w-[89px] h-[46px] text-[14px] font-normal hover:bg-black hover:text-white'>Large</button>
+            <button className='bg-[#F0F0F0] text-[#00000099] rounded-[62px] w-[104px] h-[46px] text-[14px] font-normal hover:bg-black hover:text-white'>X-Large</button>
+
+          </div>
+
+          {/* Horizontal Line*/}
+          <hr className='mt-8' />
+
+          <div className='flex space-x-4 mt-8'>
+
+            <div className="lg:w-[170px] md:w-[140px] h-[44px] w-[90px] bg-[#F0F0F0] items-center justify-center border-2 rounded-full flex">
+              <button onClick={() => setCount(count - 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
+                -</button>
+              <button onClick={() => setCount(1)} className="w-[58px] h-[52px] text-[26px]">
+                1</button>
+              <button onClick={() => setCount(count + 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
+                +</button>
             </div>
 
-            {/* Horizontal Line*/}
-            <div className='w-[590px] text-gray-400 border-gray-300 border-b-2 mt-6'></div>
-
-            {/* Size */}
-            <div className=" mt-4 items-center">
-              <span className="text-gray-400 text-[16px]">Choose Size</span>
-              <div className="w-[420px] h-[46px] mt-3 flex gap-2">
-                <div className='w-[86px] h-[46px] px-6 py-3 bg-gray-300 hover:bg-black hover:text-white rounded-full'>Small</div>
-                <div className='w-[86px] h-[46px] px-5 py-3 bg-gray-300 hover:bg-black hover:text-white  rounded-full'>Medium</div>
-                <div className='w-[86px] h-[46px] px-6 py-3 bg-gray-300 hover:bg-black hover:text-white  rounded-full'>Large</div>
-                <div className='w-[86px] h-[46px] px-4 py-3 bg-gray-300 hover:bg-black hover:text-white  rounded-full'>X-Large</div>
+            <Link href="/Cart">
+              <div>
+                <button className='md:w-[300px] md:h-[52px] w-[200px] h-[44px] bg-black text-[#F0F0F0] text-base rounded-[62px] hover:text-red-700'>
+                  Add to Cart</button>
               </div>
-            </div>
-
-            {/* Horizontal Line*/}
-            <div className='w-[590px] text-gray-400 border-gray-300 border-b-2 mt-6'></div>
-
-            {/* Button */}
-            <div className="flex mt-5">
-
-              <div className="items-center flex border-2 bg-gray-300 rounded-full  w-[170px] h-[52px]">
-                <button onClick={() => setCount(count - 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
-                  -</button>
-                <button onClick={() => setCount(1)} className="w-[58px] h-[52px] text-[26px]">
-                  1</button>
-                <button onClick={() => setCount(count + 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
-                  +</button>
-              </div>
-
-              <Link href="/Cart" className="ml-5 rounded-[62px] bg-black">
-                <button className="w-[400px] h-[52px] text-white items-center text-[16px] hover:bg-gray-500">
-                  Add To Cart</button>
-              </Link>
-
-
-            </div>
+            </Link>
           </div>
 
         </div>
-
       </div>
 
-      <div className="flex justify-around mb-8 hover:text-black">
+      <div className="wrapper flex justify-around mt-10 hover:text-black gap-2">
         <Link href="" className="w-[133px] h-[14px] text-[16px] hover:text-black">
           Product Details
-          <div className="border-b-2 border-gray-400 w-[500px] ml-[-140px] hover:border-black "></div>
+          <div className="border-b-2 border-gray-400 md:w-[320px] w-[110px] md:ml-[-140px] hover:border-black "></div>
         </Link>
 
         <Link href="" className="w-[133px] h-[14px] text-[16px] hover:text-black">
           Rating & Reviews
-          <div className="border-b-2 border-black w-[500px] ml-[-140px] hover:border-black">
+          <div className="border-b-2 border-black md:w-[320px] w-[130px] md:ml-[-140px] hover:border-black">
           </div>
         </Link>
 
         <Link href="" className="w-[133px] h-[14px] text-[16px] hover:text-black">
           FAQs
-          <div className="border-b-2 border-gray-400 w-[330px] ml-[-60px] hover:border-black">
+          <div className="border-b-2 border-gray-400 md:w-[320px] w-[100px] md:ml-[-140px] hover:border-black">
           </div>
         </Link>
-
       </div>
 
-      <div className="wrapper max-w-[1440px] mx-auto px-4 mt-10">
 
-        {/* Reviews Header */}
-        <div className="flex flex-wrap items-center justify-between mb-4 space-y-4">
-          <div className="flex items-center">
-            <h1 className="text-2xl font-semibold sm:text-sm ">All Reviews</h1>
-            <span className="text-gray-400 ml-2">(451)</span>
+      {/* Reviews Header */}
+      <div className="wrapper flex flex-wrap items-center justify-between mt-9 space-y-4">
+
+        <div className="flex items-center">
+          <h1 className="text-2xl font-bold sm:text-sm ">All Reviews</h1>
+          <span className="text-gray-400 ml-2">(451)</span>
+        </div>
+
+        <div className="flex items-center space-x-4">
+          <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
+            <Image
+              src="/product details/vector.png"
+              alt="Sort Icon"
+              width={24}
+              height={24}
+            />
           </div>
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
+          <button className="flex items-center px-4 py-2 bg-gray-300 rounded-full">
+            Latest <ChevronDown className="ml-2" />
+          </button>
+          <button className="px-6 py-2 bg-black text-white rounded-full hover:text-green-500">
+            Write a Review
+          </button>
+        </div>
+      </div>
+
+      {/* Reviews Grid */}
+      <div className="wrapper md:w-[610px] lg:w-[1100px] xl:w-[1300px] w-[358px] mt-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {ratings.map((review, index) => (
+          <div
+            key={index}
+            className="p-6 rounded-xl shadow-sm border hover:shadow-md border-gray-200">
+
+            {/* Review Header */}
+            <div className="flex items-center mb-4">
+              <span className="text-yellow-500 text-xl">{review.stars}</span>
+              <Ellipsis className="ml-[450px] text-gray-500 cursor-pointer" />
+            </div>
+
+            <div className='flex'>
+              <h2 className="text-lg font-semibold flex">{review.title}</h2>
               <Image
-                src="/product details/vector.png"
-                alt="Sort Icon"
-                width={24}
-                height={24}
+                src={review.image}
+                alt="Verified Icon"
+                width={19}
+                height={19}
+                className="ml-2  rounded-full"
               />
             </div>
-            <button className="flex items-center px-4 py-2 bg-gray-300 rounded-full">
-              Latest <ChevronDown className="ml-2" />
-            </button>
-            <button className="px-6 py-2 bg-black text-white rounded-full">
-              Write a Review
-            </button>
+
+            {/* Review Body */}
+            <p className="text-gray-600 mb-4 mt-1">{review.reviews}</p>
+            <p className="text-gray-400 text-sm">{review.posting}</p>
           </div>
-        </div>
+        ))}
+      </div>
 
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-6 ">
-          {ratings.map((review, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-lg shadow-sm border border-gray-200">
-
-              {/* Review Header */}
-              <div className="flex items-center mb-4">
-                <span className="text-yellow-500 text-xl">{review.stars}</span>
-                <Ellipsis className="ml-[450px] text-gray-500 cursor-pointer" />
-              </div>
-
-              <div className='flex'>
-                <h2 className="text-lg font-semibold flex">{review.title}</h2>
-                <Image
-                  src={review.image}
-                  alt="Verified Icon"
-                  width={19}
-                  height={19}
-                  className="ml-2  rounded-full"
-                />
-              </div>
-
-              {/* Review Body */}
-              <p className="text-gray-600 mb-4 mt-1">{review.reviews}</p>
-              <p className="text-gray-400 text-sm">{review.posting}</p>
-            </div>
-          ))}
-        </div>
-        <div className='text-center mt-12'>
-          <button className='w-[230px] h-[52px] border-2 rounded-full border-gray-300'>Load More Reviews</button>
-        </div>
+      <div className='text-center mt-12'>
+        <button className='w-[230px] h-[52px] border-2 rounded-full border-gray-300 hover:bg-black hover:text-white'>Load More Reviews</button>
       </div>
 
 
       <div className="wrapper max-w-[1440px] mx-auto py-12 mt-8">
+
         {/* You might Header */}
-        <div className="mb-6 items-center flex justify-center w-full h-[58px]  ">
-          <Image
-            src="/product Details/You might also like.png"
-            alt="Also Like"
+        <div className="mb-6 items-center flex justify-center w-full h-[58px]">
+          <Image 
+          src="/product Details/You might also like.png" 
+          alt="Also Like"
             width={579}
-            height={58}
-          />
+            height={58} 
+            />
         </div>
 
-        {/* You Might Also Like Products */}
-        <div className="wrapper grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {items.map((item, index) => (
-            <div key={index} className="rounded-lg shadow-sm hover:shadow-md ">
 
-              <div className='w-[295px] h-[298px]'>
+        {/* You Might Also Like Products */}
+        <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {items.map((item, index) => (
+            <div key={index} 
+            className="rounded-lg shadow-sm hover:shadow-md">
+
+              <div className='w-[295px] h-[298px] gap-8'>
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={295}
                   height={298}
-                  className="object-cover rounded-xl mb-4"
-                />
+                  className="object-cover rounded-xl mb-4" />
               </div>
+
               <div>
                 <h3 className="text-[20px] font-bold mb-2">{item.title}</h3>
                 <div className="flex items-center mb-2">
                   <span className="text-yellow-500 text-2xl">{item.stars}</span>
                   <span className="text-gray-400 ml-2">{item.rating}</span>
                 </div>
+
                 <div className="flex items-center justify-between">
                   {item.SalePrice && (
                     <span className="text-2xl font-bold text-black">{item.SalePrice}</span>
@@ -341,24 +348,23 @@ const TShirt = () => {
                     <span className="w-[58px] h-[28px] text-sm font-bold mr-[10px] text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.button}</span>
                   )}
                 </div>
+
               </div>
             </div>
-          ))}
+          ))
+          }
         </div>
+
       </div>
 
 
 
 
-    </div>
 
+    </div>
   )
 }
 
 export default TShirt
-
-
-
-
 
 
