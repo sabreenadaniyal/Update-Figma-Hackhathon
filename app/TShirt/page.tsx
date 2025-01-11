@@ -305,10 +305,17 @@ const TShirt = () => {
       <div className="wrapper max-w-[1440px] mx-auto py-12 mt-8">
 
         {/* You might Header */}
+<<<<<<< HEAD
         <div className="mb-6 items-center flex justify-center w-full h-[58px]">
           <Image 
           src="/product Details/You might also like.png" 
           alt="Also Like"
+=======
+        <div className="mb-6 items-center flex justify-center w-full h-[58px]  ">
+          <Image
+            src="/product details/You might also like.png"
+            alt="Also Like"
+>>>>>>> 8cefa692ac1e748552e82e09730b80586f9f18a8
             width={579}
             height={58} 
             />
