@@ -33,7 +33,7 @@ const Dynamic = (props: any) => {
     //console.log(detailProducts)
 }
 DynamicFetch()
-},[props.params.id])
+},[])
 
     return (
         <article className='mt-12 mb-24 px-2 2xl:px-12 flex flex-col  gap-y-8'>
