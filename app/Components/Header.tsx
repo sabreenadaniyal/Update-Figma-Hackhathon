@@ -48,6 +48,7 @@ const Header = () => {
               placeholder="Search for products.."
               className="bg-transparent text-sm focus:outline-none w-[151px] h-[22px] "
             />
+           
           </div>
 
           {/* Cart and User Icons */}

@@ -5,16 +5,16 @@ import DressStyle from "./Components/DressStyle";
 import HappyCustomer from "./Components/HappyCustomer";
 
 
-export default function Home() {
+export default  function Home() {
   return (
-    <div className="mb-[100px]">
+  <div className="mb-[100px]">
 
-      <Hero />
+      <Hero /> 
       <NewArrivals /> 
       <TopSelling />
       <DressStyle />
       <HappyCustomer />
-      
+
     </div >
   );
 }

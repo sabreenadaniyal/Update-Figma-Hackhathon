@@ -5,7 +5,8 @@ import Link from 'next/link';
 const Dressstyle = () => {
   return (
 
-    <div className="md:wrapper bg-[#F0F0F0] mt-[20px] rounded-[20px] w-full md:w-[700px] lg:w-[1000px] xl:w-[1250px] lg:h-full md:h-[780px] items-center">
+    <div className="md:wrapper bg-[#F0F0F0] mt-[45px] rounded-[20px] w-full md:w-[700px] lg:w-[1000px] xl:w-[1250px] lg:h-full md:h-[780px] 
+    items-center">
       <div className="flex justify-center w-full">
         <Image
           src="/hero section/dress STYLE.png"
