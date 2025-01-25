@@ -4,18 +4,20 @@ import { client } from '@/sanity/lib/client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Product } from "@/app/types/products";
+import { addToCart } from "@/app/actions/actions";
+import Swal from "sweetalert2";
 
 
 // To create static pages for dynamic routes
-const Dynamic = (props: any) => {
-     const [Data, setData] = useState<any>([])
-    
-    const [count, setCount] = useState(1)
+const Dynamic: React.FC = (props: any) => {
+    const [Data, setData] = useState<any>([])
+
     // console.log(props)
 
     useEffect(() => {
-    const DynamicFetch = async () => {
-    const fetchData = `*[_type == "products" && _id=="${props.params.id}"]{
+        const DynamicFetch = async () => {
+            const fetchData = `*[_type == "products" && _id=="${props.params.id}"]{
     _id,
     category,
     name,
@@ -28,12 +30,24 @@ const Dynamic = (props: any) => {
     "imageUrl": image.asset->url
     }[0]`;
 
-    const detailProducts:any = await client.fetch(fetchData)
-    setData(detailProducts)
-    //console.log(detailProducts)
-}
-DynamicFetch()
-},[])
+            const detailProducts: any = await client.fetch(fetchData)
+            setData(detailProducts)
+            //console.log(detailProducts)
+        }
+        DynamicFetch()
+    })
+    const handleAddToCart = (e: React.MouseEvent, product: Product) => {
+        e.preventDefault()
+        Swal.fire({
+            position: 'top-start',             // Valid position
+            icon: 'success',                   // Use lowercase 'success'
+            title: `${Data.name} added to cart`, // Dynamic title
+            showConfirmButton: false,          // Boolean, not a string
+            timer: 1000,                       // Valid number for timer (milliseconds)
+        });
+        addToCart(product)
+        //console.log(handleAddToCart)
+    }
 
     return (
         <article className='mt-12 mb-24 px-2 2xl:px-12 flex flex-col  gap-y-8'>
@@ -63,12 +77,12 @@ DynamicFetch()
 
                     {/* Price */}
                     <div className="flex">
-                    <h1 className='mt-3'><span className='text-2xl font-semibold text-green-950'>${Data.price}</span></h1>
+                        <h1 className='mt-3'><span className='text-2xl font-semibold text-green-950'>${Data.price}</span></h1>
 
-                    {/* Discounted Percentage */}
-                    <h4 className='w-[56px] h-[28px] text-sm font-bold text-red-600 bg-red-200 rounded-[16px] px-4 py-1 mt-3 ml-2'>
-                        {Data.discountPercent}%
-                    </h4>
+                        {/* Discounted Percentage */}
+                        <h4 className='w-[56px] h-[28px] text-sm font-bold text-red-600 bg-red-200 rounded-[16px] px-4 py-1 mt-3 ml-2'>
+                            {Data.discountPercent}%
+                        </h4>
                     </div>
 
                     {/* Description */}
@@ -78,10 +92,10 @@ DynamicFetch()
 
                     {/* colors */}
                     <div>
-                        <p className='w-[93px] h-[11px] text-[#00000099] mt-2'>Select Colors</p>
+                        <p className='w-[93px] h-[11px] text-gray-950 mt-2 font-semibold'>Select Colors</p>
                         <h4 className='gap-10 mt-3'>
                             {Data.colors && Data.colors.map((color: any, index: any) => (
-                                <span key={index} className='mr-2'>
+                                <span key={index} className='mr-2 text-[#00000099]'>
                                     {color}
                                 </span>
                             ))}
@@ -90,43 +104,33 @@ DynamicFetch()
 
                     {/* Sizes */}
                     <div>
-                        <p className='text-[#00000099] mt-2'>Choose Size</p>
+                        <p className='text-gray-950 mt-2 font-semibold'>Choose Size</p>
                         <h4 className='gap-10'>
                             {Data.sizes && Data.sizes.map((size: any, index: any) => (
-                                <span key={index} className='mr-2'>
+                                <span key={index} className='mr-2 text-[#00000099]'>
                                     {size}
                                 </span>
                             ))}
                         </h4>
                     </div>
 
-
-                    {/* Link */}
                     <div className='flex space-x-4'>
 
-                        <div className="lg:w-[170px] md:w-[140px] h-[44px] w-[90px] bg-[#F0F0F0] items-center justify-center border-2 rounded-full flex mt-3 border-gray-600">
-                            <button onClick={() => setCount(count - 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
-                                -</button>
-                            <button onClick={() => setCount(1)} className="w-[58px] h-[52px] text-[26px]">
-                                1</button>
-                            <button onClick={() => setCount(count + 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
-                                +</button>
-                        </div>
+                        {/* Link */}
                         <Link href="/Cart">
                             <div>
-                                <button className='md:w-[300px] md:h-[52px] w-[200px] h-[44px] bg-black text-[#F0F0F0] text-base rounded-[62px]
-                             hover:text-red-700 mt-3'>
-                                    Add to Cart</button>
+                                <button className='bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-2 px-4
+                                rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-200 ease-in-out mt-4'
+                                    onClick={(e) => handleAddToCart(e, Data)}
+                                >
+                                    Add to Cart
+                                </button>
                             </div>
                         </Link>
                     </div>
                 </div>
-
-
             </div>
-
         </article>
-
     )
 }
 export default Dynamic

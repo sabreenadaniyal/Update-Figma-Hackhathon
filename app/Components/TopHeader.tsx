@@ -2,6 +2,7 @@
 import React from 'react';
 import { RxCross2 } from "react-icons/rx";
 import  { useState } from 'react';
+import Link from 'next/link';
 
 const TopHeader = () => {
   // State to control visibility
@@ -17,9 +18,13 @@ const TopHeader = () => {
         <div className="flex gap-4">
           <p className="text-gray-300 text-base">
             Sign up and get 20% off your first order.{' '}
+            
+            {/*Sign up */}
+            <Link href="/SignUp" target="blank">
             <span className="text-white underline hover:bg-gray-600 cursor-pointer rounded-sm">
               Sign Up Now
             </span>
+            </Link>
           </p>
         </div>
 

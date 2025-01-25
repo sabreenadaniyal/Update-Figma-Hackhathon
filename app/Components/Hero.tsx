@@ -20,7 +20,7 @@ const Hero = () => {
                     <p className='text-sm md:mt-3 text-gray-600 md:ml-[-150px]'>
                         Browse through our diverse range of meticulously crafted garments, designed to bring out
                         your individuality and cater to your sense of style.</p>
-                    <Link href="/TShirt">
+                    <Link href="/Casual">
                         <button className='bg-black py-2 px-8 text-sm text-white rounded-full mt-4 w-[300px] lg:w-[210px] lg:h-[52px] md:ml-[-150px]'>
                             Shop Now</button>
                     </Link>
@@ -52,7 +52,7 @@ const Hero = () => {
                 {/* Right Side*/}
                 <div className='relative'>
                     <Image 
-                    className='w-[486px] mr-[200px] lg:w-[488.5px] md:mt-16 md:w-[600px] md:h-[440px] xl:ml-2'
+                    className='w-[486px] mr-[200px] lg:w-[488.5px] md:mt-[60px] md:w-[600px] md:h-[440px] xl:ml-2'
                         src="/hero section/hero 1.jpeg" 
                         alt="profile"
                         width={200}

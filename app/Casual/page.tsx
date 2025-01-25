@@ -1,4 +1,5 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import { ChevronRight } from 'lucide-react';
 import { SlidersHorizontal } from 'lucide-react';
@@ -7,81 +8,29 @@ import { ChevronDown } from 'lucide-react';
 import { Check } from 'lucide-react';
 import { ArrowLeft } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
+import { client } from '@/sanity/lib/client';
+import Link from 'next/link';
 
 const Casual = () => {
-    const items = [
-        {
-            image: "/product details/screen print.png",
-            title: "Gradient Graphic T-shirt.",
-            stars: "★★★★", // Rendered star
-            rating: "3.5/5",
-            SalePrice: "$145",
-        },
-        {
-            image: "/product details/pink shirt.png",
-            title: "Polo with Tipping Details",
-            stars: "★★★★★", // Rendered star
-            rating: "4.5/5",
-            SalePrice: "$180",
-        },
-        {
-            image: "/product details/black stripe shirt.png",
-            title: "Black Striped T-shirt",
-            stars: "★★★★★", // Rendered star
-            rating: "5.0/5",
-            SalePrice: "$120",
-            OriginalPrice: "$150",
-            button: "-30%",
-        },
-        {
-            image: "/hero section/bluepant.jpg",
-            title: "SKINNY FIT JEANS",
-            stars: "★★★★", // Rendered star
-            rating: "3.5/5",
-            SalePrice: "$240",
-            OriginalPrice: "$260",
-            button: "-30%",
-        },
-        {
-            image: "/hero section/cheque shirt.jpg",
-            title: "CHECKERED SHIRT",
-            stars: "★★★★★", // Rendered star
-            rating: "4.5/5",
-            SalePrice: "$180",
-        },
-        {
-            image: "/hero section/shirt 3.jpg",
-            title: "SLEEVE STRIPED T-SHIRT",
-            stars: "★★★★★", // Rendered star
-            rating: "4.5/5",
-            SalePrice: "$130",
-            OriginalPrice: "$160",
-            button: "-30%",
-        },
-        {
-            image: "/hero section/tshirt.jpg",
-            title: "VERTICAL STRIPED SHIRT",
-            stars: "★★★★★", // Rendered star
-            rating: "5.0/5",
-            SalePrice: "$212",
-            OriginalPrice: "$232",
-            button: "-20%",
-        },
-        {
-            image: "/hero section/orange shirt.jpg",
-            title: "COURAGE GRAPHIC T-SHIRT",
-            stars: "★★★★", // Rendered star
-            rating: "4.0/5",
-            SalePrice: "$145",
-        },
-        {
-            image: "/hero section/shorts.jpg",
-            title: "LOOSE FIT BERMUDA SHORTS",
-            stars: "★★★", // Rendered star
-            rating: "3.0/5",
-            SalePrice: "$80",
-        },
-    ]
+    const [Data, setData] = useState([])
+
+    useEffect(() => {
+        const DataFetch = async () => {
+            const NewArrivalsData = `*[_type == "products"][0...9] {
+                    _id,
+                    name,
+                    category,
+                    discountPercent,
+                    price,
+                    "imageUrl": image.asset->url
+                }`;
+            const CasualsData_Fetch = await client.fetch(NewArrivalsData)
+            setData(CasualsData_Fetch)
+            //console.log()
+        }
+        DataFetch()
+    }, [])
+   
     return (
         <div className='md:mb-[130px] mb-[100px] lg:mb-[210px]'>
             <div className="wrapper mt-5">
@@ -190,9 +139,9 @@ const Casual = () => {
                 {/* Main Content */}
                 <div className="w-full h-auto lg:h-[1300px] mt-5 lg:mt-0">
                     <div className="w-full h-auto flex flex-col lg:flex-row justify-between items-center">
-                        <h1 className="text-xl lg:text-2xl font-semibold ml-4">Casual</h1>
+                        <h1 className="text-xl lg:text-2xl font-semibold ml-4">Product List</h1>
                         <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-2 text-sm lg:text-base font-normal">
-                            <p>Showing 1-10 of 100 Products</p>
+                            <p>Showing 1-9 of 100 Products</p>
                             <p>Sorted by:</p>
                             <p className="flex items-center font-semibold">
                                 Most popular <ChevronDown className="w-4" />
@@ -203,43 +152,38 @@ const Casual = () => {
 
                     {/* Right Side */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 space-3">
-                        {items.map((item, index) => (
+                        {Data.map((item: any, index: any) => (
                             <div key={index} className="rounded-lg shadow-sm hover:shadow-md mt-2 ml-4">
-
+                               <Link href={`/Dynamic/${item._id}`}>
                                 <div className='w-[295px] h-[298px]'>
                                     <Image
-                                        src={item.image}
+                                        src={item.imageUrl}
                                         alt={item.title}
                                         width={295}
                                         height={298}
-                                        className="object-cover rounded-xl mb-4"
+                                        className="object-cover rounded-xl w-full h-full"
                                     />
                                 </div>
-
                                 <div>
-                                    <h3 className="text-[20px] font-bold mb-2">{item.title}</h3>
+                                    <h3 className="text-[20px] text-gray-600 font-semibold">{item.category}</h3>
+                                    <h3 className="text-[16px] font-bold mb-2">{item.name}</h3>
                                     <div className="flex items-center mb-2">
-                                        <span className="text-yellow-500 text-2xl">{item.stars}</span>
-                                        <span className="text-gray-400 ml-2">{item.rating}</span>
+                                        <span className="text-yellow-500 text-2xl">★★★★★</span>
+                                        <span className="text-gray-400 ml-2">4.5/5</span>
                                     </div>
-                                    <div className="flex items-center justify-between">
-                                        {item.SalePrice && (
-                                            <span className="text-2xl font-bold text-black">{item.SalePrice}</span>
+                                    <div className="flex items-center">
+                                        {item.price && (
+                                            <span className="text-2xl font-bold text-black">${item.price}</span>
                                         )}
-                                        {item.OriginalPrice && (
-                                            <span className="text-xl font-bold text-gray-400 line-through mr-[80px]">{item.OriginalPrice}</span>
-                                        )}
-                                        {item.button && (
-                                            <span className="w-[58px] h-[28px] text-sm font-bold mr-[100px] text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.button}</span>
+                                        {item.discountPercent && (
+                                            <span className="w-[56px] h-[28px] text-sm font-bold ml-2 text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.discountPercent}%</span>
                                         )}
                                     </div>
                                 </div>
-
-
+                                </Link>
                             </div>
                         ))}
                     </div>
-
 
                     <div className='border-2 wrapper mt-7'></div>
 

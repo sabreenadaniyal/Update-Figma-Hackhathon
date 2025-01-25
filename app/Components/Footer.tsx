@@ -8,12 +8,12 @@ import TopFooter from './TopFooter';
 const Footer = () => {
   return (
     <main className="bg-[#F0F0F0] w-full h-full md:h-[450px] lg:w-[1250px] xl:w-[1500px] relative max-w-screen-2xl mx-auto">
-      {/* Render */}
+      {/* Render Top Footer */}
       <span className="absolute top-[-70px]">
         <TopFooter />
       </span>
       {/* container */}
-      <div className="flex h-full md:h-[400px] flex-col md:flex-row justify-around items-start p-5 pt-[160px] sm:pt-32 border-b">
+      <div className="flex h-full md:h-[400px] flex-col md:flex-row justify-around items-start p-5 pt-[160px] sm:pt-32 border-b mt-[280px]">
         {/* top div */}
         <div className="flex flex-col justify-center items-center w-[200px]">
           <ul>

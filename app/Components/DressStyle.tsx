@@ -20,7 +20,8 @@ const Dressstyle = () => {
       <div className="flex flex-col md:mt-10 md:wrapper">
         {/* Casual Style */}
         <div className="md:flex md:gap-[20px] mt-5 w-full">
-          <Link href="/Casual">
+          
+        <Link href="/TShirt">
             <div className="relative xl:w-[450px] flex flex-col md:ml-8 items-center md:flex-row p-4 cursor-pointer">
               <p className="text-[24px] md:text-[36px] mb-48 left-11 font-bold absolute">Casual</p>
               <Image
@@ -31,7 +32,8 @@ const Dressstyle = () => {
                 className="w-full h-[200px] md:h-[280px] rounded-[20px] hover:shadow-lg transition"
               />
             </div>
-          </Link>
+            </Link>
+          
 
           {/* Formal Style */}
           <div className="md:ml-[-15px] md:w-[620px] md:h-[300px] xl:w-[700px] relative flex flex-col mt-2 items-center md:flex-row md:mt-0 p-4 cursor-pointer">

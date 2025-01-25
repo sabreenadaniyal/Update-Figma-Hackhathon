@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import React from 'react'
 import Image from 'next/image'
 import { ChevronRight } from 'lucide-react';
@@ -7,8 +7,29 @@ import { Check } from 'lucide-react';
 import Link from "next/link";
 import { ChevronDown } from 'lucide-react';
 import { Ellipsis } from 'lucide-react'
+import { client } from "@/sanity/lib/client";
 
 const TShirt = () => {
+    const [Data, setData] = useState([])
+  
+      useEffect(() => {
+          const DataFetch = async () => {
+              const TshirtData = `*[_type == "products"][13...17] {
+                  _id,
+                  name,
+                  category,
+                  discountPercent,
+                  isNew,
+                  price,
+                  "imageUrl": image.asset->url
+              }`;
+              const TshirtData_Fetch = await client.fetch(TshirtData)
+              setData(TshirtData_Fetch)
+                  // console.log(NewArrivalsData_Fetch)
+        }
+        DataFetch()
+    },[])
+
   const [count, setCount] = useState(1)
   const ratings = [
     {
@@ -58,40 +79,6 @@ const TShirt = () => {
       reviews:
         "I am not just wearing a t-shirt; I am wearing a piece of design philosophy. The intricate details and thoughtful layout of the designer make this shirt a conversation starter.",
       posting: "Posted on August 19, 2023",
-    },
-  ]
-  const items = [
-    {
-      image: "/product details/blue shirt.png",
-      title: "Polo with Contrast Trims",
-      stars: "★★★★", // Rendered star
-      rating: "4.0/5",
-      SalePrice: "$212",
-      OriginalPrice: "$242",
-      button: "-20%",
-    },
-    {
-      image: "/product details/screen print.png",
-      title: "Gradient Graphic T-shirt.",
-      stars: "★★★★", // Rendered star
-      rating: "3.5/5",
-      SalePrice: "$145",
-    },
-    {
-      image: "/product details/pink shirt.png",
-      title: "Polo with Tipping Details",
-      stars: "★★★★★", // Rendered star
-      rating: "4.5/5",
-      SalePrice: "$180",
-    },
-    {
-      image: "/product details/black stripe shirt.png",
-      title: "Black Striped T-shirt",
-      stars: "★★★★★", // Rendered star
-      rating: "5.0/5",
-      SalePrice: "$120",
-      OriginalPrice: "$150",
-      button: "-30%",
     },
   ]
 
@@ -150,8 +137,8 @@ const TShirt = () => {
 
         </div>
 
-        <div className='lg:w-[400px] xl:mr-52 lg:ml-2 lg:mt-5 xl:ml-7 xl:mt-5'>
 
+        <div className='lg:w-[400px] xl:mr-52 lg:ml-2 lg:mt-5 xl:ml-7 xl:mt-5'>
           <Image 
           src="/product details/graphic shirt.png" 
           alt="title"
@@ -200,15 +187,6 @@ const TShirt = () => {
           <hr className='mt-8' />
 
           <div className='flex space-x-4 mt-8'>
-
-            <div className="lg:w-[170px] md:w-[140px] h-[44px] w-[90px] bg-[#F0F0F0] items-center justify-center border-2 rounded-full flex">
-              <button onClick={() => setCount(count - 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
-                -</button>
-              <button onClick={() => setCount(1)} className="w-[58px] h-[52px] text-[26px]">
-                1</button>
-              <button onClick={() => setCount(count + 1)} className="w-[56px] h-[52px] text-[30px] font-bold">
-                +</button>
-            </div>
 
             <Link href="/Cart">
               <div>
@@ -302,7 +280,6 @@ const TShirt = () => {
         <button className='w-[230px] h-[52px] border-2 rounded-full border-gray-300 hover:bg-black hover:text-white'>Load More Reviews</button>
       </div>
 
-
       <div className="wrapper max-w-[1440px] mx-auto py-12 mt-8">
 
         {/* You might Header */}
@@ -317,50 +294,45 @@ const TShirt = () => {
 
           {/* You Might Also Like Products */}
           <div className="wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
-            {items.map((item, index) => (
+            {Data.map((item:any, index:any) => (
               <div key={index}
                 className="rounded-lg shadow-sm hover:shadow-md">
 
+               <Link href={`/Dynamic/${item._id}`}>
                 <div className='w-[295px] h-[298px] gap-8'>
                   <Image
-                    src={item.image}
-                    alt={item.title}
+                    src={item.imageUrl}
+                    alt={item.name}
                     width={295}
                     height={298}
-                    className="object-cover rounded-xl mb-4"
+                    className="object-cover rounded-xl w-full h-full"
                     />
                 </div>
 
                 <div>
-                  <h3 className="text-[20px] font-bold mb-2">{item.title}</h3>
+                  <h3 className="text-[20px] font-bold mb-2">{item.name}</h3>
                   <div className="flex items-center mb-2">
-                    <span className="text-yellow-500 text-2xl">{item.stars}</span>
-                    <span className="text-gray-400 ml-2">{item.rating}</span>
+                    <span className="text-yellow-500 text-2xl">★★★★★</span>
+                    <span className="text-gray-400 ml-2">5.0/5</span>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    {item.SalePrice && (
-                      <span className="text-2xl font-bold text-black">{item.SalePrice}</span>
+                  <div className="flex items-center">
+                    {item.price && (
+                      <span className="text-2xl font-bold text-black">${item.price}</span>
                     )}
-                    {item.OriginalPrice && (
-                      <span className="text-xl font-bold text-gray-400 line-through mr-[100px]">{item.OriginalPrice}</span>
-                    )}
-                    {item.button && (
-                      <span className="w-[58px] h-[28px] text-sm font-bold mr-[10px] text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.button}</span>
+                    {item.discountPercent && (
+                      <span className="w-[58px] h-[28px] text-sm font-bold ml-2 text-red-600 bg-red-200 rounded-[16px] px-3 py-2">{item.discountPercent}%</span>
                     )}
                   </div>
 
                 </div>
+                </Link>
               </div>
             ))
             }
           </div>
 
         </div>
-
-
-
-
 
       </div>
     </div>

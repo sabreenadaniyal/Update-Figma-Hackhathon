@@ -21,14 +21,13 @@ const NewArrivals = () => {
             }`;
             const NewArrivalsData_Fetch = await client.fetch(NewArrivalsData)
             setData(NewArrivalsData_Fetch)
-
             // console.log(NewArrivalsData_Fetch)
         }
         DataFetch()
     },[])
 
     return (
-        <div className="wrapper py-12 mt-5">
+        <div className="wrapper py-12 mt-5" id="newarrival">
             {/* new arrival Header */}
             <div className="mb-6 items-center flex justify-center w-full h-[58px] lg:w-[403px] wrapper">
                 <Image
@@ -45,17 +44,17 @@ const NewArrivals = () => {
                     <div key={index}
                         className="rounded-lg shadow-sm border-gray-300 hover:shadow-md flex flex-col">
 
-                        <div className='w-full relative flex-1'>
+                        <div className='w-[295px] h-[298px] gap-8'>
                             <Image
                                 src={item.imageUrl}
                                 alt={item.name}
                                 width={295}
-                                height={298}
-                                className=" rounded-xl h-full w-full" />
+                                height={295}
+                                className=" rounded-xl h-full w-full"/>
                         </div>
 
                         {/* Category */}
-                        <h1 className='text-black uppercase font-bold text-2xl ml-2'>{item.category}</h1>
+                        <h1 className='text-gray-900 uppercase font-bold text-2xl ml-2'>{item.category}</h1>
 
                         <div className='ml-2'>
                             <h3 className="font-bold mb-2 md:w-[225px]">{item.name}</h3>
@@ -77,7 +76,9 @@ const NewArrivals = () => {
                         </div>
 
                         <Link href={`/Dynamic/${item._id}`}>
-                            <div className="w-[60%] h-[40px] mx-auto text-center py-2 bg-black text-white rounded-2xl mt-6 hover:text-black hover:bg-gray-200 mb-4">
+                            <div className="w-[60%] h-[40px] mx-auto text-center mt-4
+                         bg-gradient-to-r from-black to-gray-500 text-white font-semibold py-2 px-4
+                                rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-200 ease-in-out">
                                 <button className='font-bold'>More Details</button>
                             </div>
                         </Link>

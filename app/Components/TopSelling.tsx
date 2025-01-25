@@ -10,7 +10,7 @@ const TopSelling = () => {
     useEffect(() => {
         const DataFetch = async () => {
             const TopSellingData = (
-                `*[_type == "products"][1...5]{
+                `*[_type == "products"][2...6]{
     _id,
     name,
     category,
@@ -29,7 +29,7 @@ const TopSelling = () => {
     }, [])
 
     return (
-        <div className="wrapper py-3">
+        <div className="wrapper py-3" id="topselling">
             {/* Top selling Header */}
             <div className="mb-6 items-center flex justify-center w-full h-[58px]">
                 <Image
@@ -46,21 +46,21 @@ const TopSelling = () => {
                     <div key={index}
                         className="rounded-lg shadow-sm hover:shadow-md flex flex-col">
 
-                        <div className='w-full flex-1'>
+                        <div className='w-[295px] h-[298px] gap-8'>
                             <Image
                                 src={item.imageUrl}
                                 alt={item.name}
                                 width={295}
-                                height={298}
+                                height={295}
                                 className="rounded-xl h-full w-full" />
                         </div>
 
                         <div>
                             {/* Category */}
-                            <h1 className='text-black uppercase font-bold text-2xl ml-2'>{item.category}</h1>
-                            <h3 className="md:w-[225px] font-bold mb-2">{item.name}</h3>
+                            <h1 className='text-gray-900 uppercase font-bold text-2xl ml-2'>{item.category}</h1>
+                            <h3 className="md:w-[225px] font-bold mb-2 ml-2">{item.name}</h3>
                             <div className="flex items-center mb-2">
-                                <span className="text-yellow-500 text-2xl">★★★★★</span>
+                                <span className="text-yellow-500 text-2xl ml-2">★★★★★</span>
                                 <span className="text-gray-400 ml-2">4.5/5</span>
                             </div>
                             <div className="flex items-center justify-between">
@@ -74,8 +74,9 @@ const TopSelling = () => {
                             </div>
                         </div>
                         <Link href={`/Dynamic/${item._id}`}>
-                            <div className="w-[60%] h-[40px] mx-auto text-center py-2 bg-black text-white hover:text-black 
-                         hover:bg-gray-200 rounded-2xl mt-6">
+                            <div className="w-[60%] h-[40px] mx-auto text-center mt-4
+                         bg-gradient-to-r from-black to-gray-500 text-white font-semibold py-2 px-4
+                                rounded-lg shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-200 ease-in-out">
                                 <button className='font-bold'>
                                     More Details
                                 </button>
