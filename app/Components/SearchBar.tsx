@@ -79,3 +79,54 @@ interface Product {
 
 export default SearchBarWithDropdown;
 
+
+
+
+
+
+// 'use client'
+// import { client } from '@/sanity/lib/client'
+// import React, { useEffect, useState } from 'react'
+
+// const SearchBar = () => {
+//   const [products, setProducts] = useState([]) // Ensure proper state type
+//   const [search, setSearch] = useState('')
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const query = `*[_type == "products"]{
+//         _id,
+//         name,
+//         price,
+//         category,
+//         "imageUrl": image.asset -> url
+//       }`
+//       const fetchedProducts = await client.fetch(query)
+//       setProducts(fetchedProducts)
+//     }
+
+//     fetchData() // Call the function inside useEffect
+//   }, [])
+
+//   return (
+//     <div>
+//       <input
+//         type="text"
+//         placeholder="Search for Products..."
+//         className="bg-[#F0F0F0] rounded-md"
+//         onChange={(e) => setSearch(e.target.value.toLowerCase())}
+//       />
+//       <div>
+//         {products
+//           .filter((item:any) => (item.name.toLowerCase()).includes(search))
+//           .map((item:any, index:any) => (
+//             <div key={index} className="p-2 border-b cursor-pointer">
+//              <p>{item.name}</p>
+//             </div>
+//           ))}
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default SearchBar

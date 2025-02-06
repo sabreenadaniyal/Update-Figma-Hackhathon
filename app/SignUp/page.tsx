@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from "react";
 
-const LoginPage: React.FC = () => {
+const SignUp: React.FC = () => {
     const [name, setName] = useState<string>("");
     const [fullname, setFullName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
@@ -76,5 +76,5 @@ const LoginPage: React.FC = () => {
     );
 };
 
-export default LoginPage;
+export default SignUp;
 

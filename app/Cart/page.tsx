@@ -9,6 +9,7 @@ import {
 import Image from "next/image";
 import Swal from "sweetalert2";
 import { FaTrashCan } from "react-icons/fa6";
+import { useRouter } from 'next/navigation';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -64,6 +65,7 @@ const CartPage = () => {
       0
     );
   };
+  const router = useRouter()
 
   const handleProceed = () => {
     Swal.fire({
@@ -81,6 +83,7 @@ const CartPage = () => {
           "Your order has been successfully processed!",
           "success"
         );
+        router.push("/CheckOut")
         // Clear the cart after proceeding (optional)
         setCartItems([]);
       }
@@ -156,7 +159,7 @@ const CartPage = () => {
             onClick={handleProceed}
             className="mt-4 w-full px-4 py-2 bg-black text-white rounded-md hover:bg-green-600"
           >
-            Go To CheckOut
+            Proceed
           </button>
         </div>
       )}
