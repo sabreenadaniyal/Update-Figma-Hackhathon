@@ -10,9 +10,13 @@ import { ArrowLeft } from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import { client } from '@/sanity/lib/client';
 import Link from 'next/link';
+import { Product } from '../types/products';
+
 
 const Casual = () => {
     const [Data, setData] = useState([])
+    const [filter, setFilter] = useState<Product[]>([])
+    const [PriceRange, setPriceRange] = useState<number>(300)
 
     useEffect(() => {
         const DataFetch = async () => {
@@ -27,10 +31,21 @@ const Casual = () => {
             const CasualsData_Fetch = await client.fetch(NewArrivalsData)
             setData(CasualsData_Fetch)
             //console.log()
+            setFilter(CasualsData_Fetch)   // Ensure initial filter state
         }
         DataFetch()
     }, [])
-   
+
+    useEffect(() => {
+        const filterProducts = Data.filter((product: { price: number }) => product.price <= PriceRange)
+        setFilter(filterProducts)
+    }, [PriceRange, Data])
+
+
+    const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => [
+        setPriceRange(Number(e.target.value))
+    ]
+
     return (
         <div className='md:mb-[130px] mb-[100px] lg:mb-[210px]'>
             <div className="wrapper mt-5">
@@ -71,16 +86,16 @@ const Casual = () => {
                         <h2 className="text-base justify-around lg:text-lg font-bold">Price</h2>
                         <ChevronUp className="w-4" />
                     </div>
-                    <div className="w-full lg:w-[247px] h-1 bg-gray-300 flex items-center">
-                        <div className="flex w-[150px] h-1 bg-black justify-between">
-                            <div className="bg-black w-5 h-5 border-2 rounded-full"></div>
-                            <div className="bg-black w-5 h-5 border-2 rounded-full"></div>
-                        </div>
-                    </div>
-                    <div className="flex justify-between mt-3 text-sm">
-                        <p>$500</p>
-                        <p className='mr-24 md:mr-[520px] lg:ml-24'>$200</p>
-                    </div>
+
+                    <input type="range" 
+                        min="50"
+                        max="300"
+                        className='w-full cursor-pointer'
+                        value={PriceRange}
+                        onChange={handlePriceChange}
+                    />
+                    <p>Price Range in $:{PriceRange}</p>
+
                     <hr className="bg-gray-300 mt-5" />
 
                     {/* Colors */}
@@ -92,11 +107,12 @@ const Casual = () => {
                         {['#00C12B', '#F50606', '#F5DD06', '#F57906', '#06CAF5', '#063AF5', '#7D06F5', '#F506A4', '#FFFFFF', '#000000'].map((color, index) => (
                             <div
                                 key={index}
-                                className="w-9 h-9 border-2 rounded-full border-gray-400"
-                                style={{ backgroundColor: color }}
-                            ></div>
+                                className="w-9 h-9 border-2 rounded-full border-gray-400 cursor-pointer"
+                                style={{ backgroundColor: color }}>
+
+                            </div>
                         ))}
-                        <Check className='ml-1 mt-[-36px] text-white' />
+                        <Check className='ml-1 mt-[-36px] text-white cursor-pointer' />
                     </div>
 
                     <hr className="bg-gray-300 mt-5" />
@@ -108,7 +124,8 @@ const Casual = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-2 mt-2">
                         {['XX-Small', 'X-Small', 'Small', 'Medium', 'Large', 'X-Large', 'XX-Large', '3X-Large'].map((size) => (
-                            <button key={size} className="w-full text-sm text-gray-600 bg-gray-100 py-2 rounded-full">
+                            <button key={size} className="w-full text-sm text-gray-600 bg-gray-100 py-2 rounded-full hover:bg-black
+                            hover:text-white">
                                 {size}
                             </button>
                         ))}
@@ -152,34 +169,34 @@ const Casual = () => {
 
                     {/* Right Side */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 space-3">
-                        {Data.map((item: any, index: any) => (
+                        {filter.map((item: any, index: any) => (
                             <div key={index} className="rounded-lg shadow-sm hover:shadow-md mt-2 ml-4">
-                               <Link href={`/Dynamic/${item._id}`}>
-                                <div className='w-[295px] h-[298px]'>
-                                    <Image
-                                        src={item.imageUrl}
-                                        alt={item.title}
-                                        width={295}
-                                        height={298}
-                                        className="object-cover rounded-xl w-full h-full"
-                                    />
-                                </div>
-                                <div>
-                                    <h3 className="text-[20px] text-gray-600 font-semibold">{item.category}</h3>
-                                    <h3 className="text-[16px] font-bold mb-2">{item.name}</h3>
-                                    <div className="flex items-center mb-2">
-                                        <span className="text-yellow-500 text-2xl">★★★★★</span>
-                                        <span className="text-gray-400 ml-2">4.5/5</span>
+                                <Link href={`/Dynamic/${item._id}`}>
+                                    <div className='w-[295px] h-[298px]'>
+                                        <Image
+                                            src={item.imageUrl}
+                                            alt={item.title}
+                                            width={295}
+                                            height={298}
+                                            className="object-cover rounded-xl w-full h-full"
+                                        />
                                     </div>
-                                    <div className="flex items-center">
-                                        {item.price && (
-                                            <span className="text-2xl font-bold text-black">${item.price}</span>
-                                        )}
-                                        {item.discountPercent && (
-                                            <span className="w-[56px] h-[28px] text-sm font-bold ml-2 text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.discountPercent}%</span>
-                                        )}
+                                    <div>
+                                        <h3 className="text-[20px] text-gray-600 font-semibold ml-2">{item.category}</h3>
+                                        <h3 className="text-[16px] font-bold mb-2 ml-2">{item.name}</h3>
+                                        <div className="flex items-center mb-2 ml-2">
+                                            <span className="text-yellow-500 text-2xl">★★★★★</span>
+                                            <span className="text-gray-400 ml-2">4.5/5</span>
+                                        </div>
+                                        <div className="flex items-center ml-2">
+                                            {item.price && (
+                                                <span className="text-2xl font-bold text-black">${item.price}</span>
+                                            )}
+                                            {item.discountPercent && (
+                                                <span className="w-[56px] h-[28px] text-sm font-bold ml-2 text-red-600 bg-red-200 rounded-[16px] px-3 py-1">{item.discountPercent}%</span>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
                                 </Link>
                             </div>
                         ))}
@@ -214,6 +231,7 @@ const Casual = () => {
                                 <ArrowRight />
                             </h5>
                         </div>
+
                     </div>
 
 
